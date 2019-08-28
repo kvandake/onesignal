@@ -1,0 +1,57 @@
+{
+  "name": "onesignal",
+  "version": "1.0.0",
+  "author": "kvandake",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "yarn run clean && tsc",
+    "test": "jest",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "yarn run build",
+    "preversion": "yarn run lint",
+    "version": "yarn run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "axios-mock-adapter": "^1.17.0",
+    "humps": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/humps": "^1.1.2",
+    "@types/jest": "^24.0.18",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.19.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.5.3"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.test.json"
+      }
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
