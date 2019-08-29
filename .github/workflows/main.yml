@@ -24,4 +24,4 @@ jobs:
       - uses: Borales/actions-yarn@master
       - run: yarn publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+          NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
