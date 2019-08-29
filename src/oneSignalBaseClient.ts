@@ -24,7 +24,6 @@ export abstract class OneSignalBaseClient {
           setTimeout(() => resolve(client.request(config)), 1000);
         });
       } else {
-        console.warn(error.response.data.errors)
         return Promise.reject(error);
       }
     });

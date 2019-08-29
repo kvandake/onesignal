@@ -12,6 +12,7 @@ export class OneSignalUserClient extends OneSignalBaseClient {
   }
 
   //  View the details of all of your current OneSignal apps
+  //  https://documentation.onesignal.com/reference#view-apps-apps
   public async viewApps(): Promise<IAppResult[]> {
     this.checkUserAuthKey();
     return await this.httpClient.get<IAppResult[]>('/apps')
@@ -19,6 +20,7 @@ export class OneSignalUserClient extends OneSignalBaseClient {
   };
 
   //  View the details of a single OneSignal app
+  //  https://documentation.onesignal.com/reference#view-an-app
   public async viewApp(input: IViewAppInput): Promise<IAppResult> {
     this.checkUserAuthKey();
     return await this.httpClient.get<IAppResult>(`/apps/${input.id}`)
@@ -26,6 +28,7 @@ export class OneSignalUserClient extends OneSignalBaseClient {
   };
 
   //  Creates a new OneSignal app
+  //  https://documentation.onesignal.com/reference#create-an-app
   public async createApp(input: ICreateAppInput): Promise<IAppResult> {
     this.checkUserAuthKey();
     return await this.httpClient.post<IAppResult>('/apps', input)
@@ -33,6 +36,7 @@ export class OneSignalUserClient extends OneSignalBaseClient {
   };
 
   //  This method can be used to update the name or configuration settings of one of your existing apps.
+  //  https://documentation.onesignal.com/reference#update-an-app
   public async updateApp(input: IUpdateAppInput): Promise<IAppResult> {
     const { id, ...body } = input;
     this.checkUserAuthKey();
