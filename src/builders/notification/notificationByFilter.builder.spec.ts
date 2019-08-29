@@ -10,8 +10,8 @@ describe('NotificationByFilterBuilder', () => {
   it('should valid variables', () => {
     // arrange
     const filters = [
-      { 'field': 'tag', 'key': 'level', 'relation': '>', 'value': '10' },
-      { 'field': 'amount_spent', 'relation': '>', 'value': '0' },
+      { field: 'tag', key: 'level', relation: '>', value: '10' },
+      { field: 'amount_spent', relation: '>', value: '0' },
     ];
 
     // act
