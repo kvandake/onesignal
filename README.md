@@ -176,8 +176,19 @@ List of server api methods.
 - [ ] [Create Segments](https://documentation.onesignal.com/reference#create-segments)
 - [ ] [Delete Segments](https://documentation.onesignal.com/reference#delete-segments)
 
+## Support
+
+If any bugs are found in the API wrapper, please open an issue on GitHub, or a Pull Request if you want to fix it yourself!
+Please be as explicit as possible and provide a minimum reproducing repository if at all possible, as it helps track down what went wrong.
+
+## Documentation
+
+All documentation for this wrapper comes from the [Server Rest API](https://documentation.onesignal.com/reference), 
+if there are any typos, please let me know or open a PR to fix it.
+
 ## TODO
 - Implements all methods
+
 ## Licence
 MIT
 
