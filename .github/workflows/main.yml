@@ -16,3 +16,12 @@ jobs:
       - uses: Borales/actions-yarn@master
       - run: yarn install
       - run: yarn test
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: Borales/actions-yarn@master
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
