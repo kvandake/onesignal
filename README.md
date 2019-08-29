@@ -1,3 +1,14 @@
+# OneSignal API Client
+[![npm version](https://badge.fury.io/js/onesignal-api-client-core.svg)](https://badge.fury.io/js/onesignal-api-client-core)
+
+## Features
+- Written in Typescript.
+- The code is covered by tests.
+- The library uses [Axios](https://github.com/axios/axios).
+- Two clients for different method calls: OneSignalAppClient, OneSignalUserClient. **OneSignalAppClient** is created for notifications, devices, tracks or sessions. **OneSignalUserClient** is created for apps.
+- Support create a notification builder. You may target users in one of three ways using this builders: by **[NotificationBySegmentBuilder](https://github.com/kvandake/onesignal/blob/master/src/builders/notification/notificationBySegment.builder.ts)**, by **[NotificationByFilterBuilder](https://github.com/kvandake/onesignal/blob/master/src/builders/notification/notificationByFilter.builder.ts)**, or by **[NotificationByDeviceBuilder](https://github.com/kvandake/onesignal/blob/master/src/builders/notification/notificationByDevice.builder.ts)**.
+- Support methods for different contents: **[Notification](https://github.com/kvandake/onesignal/blob/master/src/builders/notification/notification.builder.ts)** or **[Email](https://github.com/kvandake/onesignal/blob/master/src/builders/notification/email.builder.ts)**. Support methods is available in the builders.
+
 ## Getting Started
 
 Npm
@@ -9,14 +20,6 @@ Yarn
 ```sh
 yarn add onesignal-api-client-core
 ```
-
-## Features
-- Written in Typescript.
-- The code is covered by tests.
-- The library uses [Axios](https://github.com/axios/axios).
-- Two clients for different method calls: OneSignalAppClient, OneSignalUserClient. **OneSignalAppClient** is created for notifications, devices, tracks or sessions. **OneSignalUserClient** is created for apps.
-- Support create a notification builder. You may target users in one of three ways using this builders: by **[NotificationBySegmentBuilder](https://github.com/kvandake/onesignal/blob/master/src/builders/notification/notificationBySegment.builder.ts)**, by **[NotificationByFilterBuilder](https://github.com/kvandake/onesignal/blob/master/src/builders/notification/notificationByFilter.builder.ts)**, or by **[NotificationByDeviceBuilder](https://github.com/kvandake/onesignal/blob/master/src/builders/notification/notificationByDevice.builder.ts)**.
-- Support methods for different contents: **[Notification](https://github.com/kvandake/onesignal/blob/master/src/builders/notification/notification.builder.ts)** or **[Email](https://github.com/kvandake/onesignal/blob/master/src/builders/notification/email.builder.ts)**. Support methods is available in the builders.
 
 ## Using
 
