@@ -1,7 +1,6 @@
 import { AxiosInstance } from 'axios';
 
 export abstract class OneSignalBaseClient {
-
   protected BaseUrl = 'https://onesignal.com/api/v1';
 
   // tslint:disable-next-line:variable-name
@@ -14,19 +13,25 @@ export abstract class OneSignalBaseClient {
   protected abstract createHttpClient();
 
   protected configureHttpClient(client: AxiosInstance) {
-    client.interceptors.response.use(response => {
-      return response;
-    }, error => {
-      const { config, response: { status } } = error;
-      // To many requests
-      if (status === 429) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => resolve(client.request(config)), 1000);
-        });
-      } else {
-        return Promise.reject(error);
-      }
-    });
+    client.interceptors.response.use(
+      response => {
+        return response;
+      },
+      error => {
+        const {
+          config,
+          response: { status },
+        } = error;
+        // To many requests
+        if (status === 429) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => resolve(client.request(config)), 1000);
+          });
+        } else {
+          return Promise.reject(error);
+        }
+      },
+    );
   }
 
   private createHttpClientInternal(): AxiosInstance {

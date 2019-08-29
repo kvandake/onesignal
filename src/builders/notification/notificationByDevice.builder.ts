@@ -4,7 +4,6 @@ import { INotificationFilterSpecificDevices } from '../../dto/notifications';
 
 // https://documentation.onesignal.com/reference#section-send-to-specific-devices
 export class NotificationByDeviceBuilder extends NotificationByBaseBuilder<INotificationFilterSpecificDevices> {
-
   //  Specific players to send your notification to. Does not require API Auth Key.
   //  Do not combine with other targeting parameters. Not compatible with any other targeting parameters.
   //  Example: ["1dd608f2-c6a1-11e3-851d-000c2940e62c"]
@@ -34,7 +33,11 @@ export class NotificationByDeviceBuilder extends NotificationByBaseBuilder<INoti
   }
 
   protected checkRequiredVariables() {
-    if (!this.filter.include_player_ids && !this.filter.include_external_user_ids && !this.filter.include_email_tokens) {
+    if (
+      !this.filter.include_player_ids &&
+      !this.filter.include_external_user_ids &&
+      !this.filter.include_email_tokens
+    ) {
       throw new OneSignalError('include_player_ids, include_external_user_ids or include_email_tokens are required');
     }
   }

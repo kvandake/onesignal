@@ -11,9 +11,16 @@ import { INotificationGroupingCollapsing } from './notification.grouping.collaps
 import { INotificationPlatform } from './notification.platform';
 import { INotificationDelivery } from './notification.delivery';
 
-export interface INotification extends INotificationContent, IEmailContent,
-  INotificationIdempotency, INotificationAttachments, INotificationAppearance, INotificationActionButtons,
-  INotificationFilterSegments, INotificationFilterSpecificDevices, INotificationFilterUsersBased,
-  INotificationGroupingCollapsing, INotificationPlatform, INotificationDelivery {
-
-}
+export interface INotification
+  extends INotificationContent,
+    IEmailContent,
+    INotificationIdempotency,
+    INotificationAttachments,
+    INotificationAppearance,
+    INotificationActionButtons,
+    INotificationFilterSegments,
+    INotificationFilterSpecificDevices,
+    INotificationFilterUsersBased,
+    INotificationGroupingCollapsing,
+    INotificationPlatform,
+    INotificationDelivery {}

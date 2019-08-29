@@ -11,12 +11,7 @@ import { OneSignalError } from '../../errors';
 
 //  https://documentation.onesignal.com/reference#section-notification-content
 export class NotificationBuilder {
-
-  constructor(
-    private notification: INotification,
-  ) {
-
-  }
+  constructor(private notification: INotification) {}
 
   public build(): INotification {
     this.checkRequiredVariables();

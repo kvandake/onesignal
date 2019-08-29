@@ -16,7 +16,10 @@ describe('NotificationBySegmentBuilder', () => {
     // act
     builder.setIncludedSegments(includedSegments);
     builder.setExcludedSegments(excludedSegments);
-    const result = builder.notification().setContents({ test: 1 }).build();
+    const result = builder
+      .notification()
+      .setContents({ test: 1 })
+      .build();
 
     // assert
     expect(result.included_segments).toEqual(includedSegments);
@@ -25,6 +28,11 @@ describe('NotificationBySegmentBuilder', () => {
 
   it('should check required variables', () => {
     // act & assert
-    expect(() => builder.notification().setContents({ test: 1 }).build()).toThrowError(OneSignalError);
+    expect(() =>
+      builder
+        .notification()
+        .setContents({ test: 1 })
+        .build(),
+    ).toThrowError(OneSignalError);
   });
 });

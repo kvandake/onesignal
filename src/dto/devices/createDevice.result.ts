@@ -1,4 +1,4 @@
 export interface ICreateDeviceResult {
-  success: boolean,
-  id: string
+  success: boolean;
+  id: string;
 }

@@ -3,12 +3,7 @@ import { OneSignalError } from '../../errors';
 
 //  https://documentation.onesignal.com/reference#section-email-content
 export class EmailBuilder {
-
-  constructor(
-    private readonly notification: INotification,
-  ) {
-
-  }
+  constructor(private readonly notification: INotification) {}
 
   public build(): INotification {
     this.checkRequiredVariables();

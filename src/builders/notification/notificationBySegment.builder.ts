@@ -4,8 +4,7 @@ import { INotificationFilterSegments } from '../../dto/notifications';
 
 // https://documentation.onesignal.com/reference#section-send-to-segments
 export class NotificationBySegmentBuilder extends NotificationByBaseBuilder<INotificationFilterSegments> {
-
-//  The segment names you want to target. Users in these segments will receive a notification.
+  //  The segment names you want to target. Users in these segments will receive a notification.
   //  This targeting parameter is only compatible with excluded_segments
   //  Example: ["Active Users", "Inactive Users"]
   public setIncludedSegments(value: string[]): NotificationBySegmentBuilder {

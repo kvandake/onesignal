@@ -1,3 +1,3 @@
 export interface IUpdateDeviceResult {
-  success: boolean,
+  success: boolean;
 }

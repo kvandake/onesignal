@@ -3,7 +3,6 @@ import { INotificationFilterUsersBased } from '../../dto/notifications';
 
 // https://documentation.onesignal.com/reference#section-send-to-users-based-on-filters
 export class NotificationByFilterBuilder extends NotificationByBaseBuilder<INotificationFilterUsersBased> {
-
   //  relation = ">" or "<"
   //  hours_ago = number of hours before or after the users last session.
   //  Example: "1.1"

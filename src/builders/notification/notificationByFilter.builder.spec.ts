@@ -35,7 +35,10 @@ describe('NotificationByFilterBuilder', () => {
     builder.setSessionTime(sessionTime);
     builder.setTag(tag);
     builder.setLanguage(language);
-    const result = builder.notification().setContents({ test: 1 }).build();
+    const result = builder
+      .notification()
+      .setContents({ test: 1 })
+      .build();
 
     // assert
     expect(result.first_session).toEqual(firstSession);
@@ -55,6 +58,9 @@ describe('NotificationByFilterBuilder', () => {
   it('should check required variables', () => {
     // act & assert
     // without required variables
-    builder.notification().setContents({ test: 1 }).build();
+    builder
+      .notification()
+      .setContents({ test: 1 })
+      .build();
   });
 });

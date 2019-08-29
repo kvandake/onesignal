@@ -6,8 +6,12 @@ import {
   INotificationFilterUsersBased,
 } from '../../dto/notifications';
 
-export abstract class NotificationByBaseBuilder<FilterNotification extends INotificationFilterSegments | INotificationFilterUsersBased | INotificationFilterSpecificDevices> {
-
+export abstract class NotificationByBaseBuilder<
+  FilterNotification extends
+    | INotificationFilterSegments
+    | INotificationFilterUsersBased
+    | INotificationFilterSpecificDevices
+> {
   private readonly filterNotification: any = {} as FilterNotification;
 
   public notification(): NotificationBuilder {
@@ -26,4 +30,3 @@ export abstract class NotificationByBaseBuilder<FilterNotification extends INoti
 
   protected abstract checkRequiredVariables();
 }
-
