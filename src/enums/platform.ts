@@ -1,0 +1,15 @@
+export enum Platform {
+  Ios = 'ios',
+  Android = 'android',
+  AmazonFire = 'amazon_fire',
+  WindowsPhoneLegacy = 'windows_phone_legacy',
+  ChromeExtension = 'chrome_extension',
+  ChromeWebPush = 'chrome_web_push',
+  Windows = 'windows',
+  SafariWebPush = 'safari_web_push',
+  FirefoxWebPush = 'firefox_web_push',
+  MacOs = 'mac_os',
+  AmazonAlexa = 'amazon_alexa',
+  Email = 'email',
+  EdgeWebPush = 'edge_web_push',
+}

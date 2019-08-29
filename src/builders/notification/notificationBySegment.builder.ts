@@ -1,6 +1,6 @@
 import { NotificationByBaseBuilder } from './notificationByBase.builder';
 import { OneSignalError } from '../../errors';
-import { INotificationFilterSegments } from '../../dto/notifications/notification.filter.segments';
+import { INotificationFilterSegments } from '../../dto/notifications';
 
 // https://documentation.onesignal.com/reference#section-send-to-segments
 export class NotificationBySegmentBuilder extends NotificationByBaseBuilder<INotificationFilterSegments> {

@@ -2,4 +2,5 @@
 export interface ICreateNotificationResult {
   id: string;
   recipients: number;
+  errors?: string[];
 }

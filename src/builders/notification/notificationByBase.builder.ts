@@ -1,13 +1,15 @@
 import { NotificationBuilder } from './notification.builder';
 import { EmailBuilder } from './email.builder';
-import { INotificationFilterSegments } from '../../dto/notifications/notification.filter.segments';
-import { INotificationFilterUsersBased } from '../../dto/notifications/notification.filter.usersBased';
-import { INotificationFilterSpecificDevices } from '../../dto/notifications/notification.filter.specificDevices';
-import { INotificationApp } from '../../dto/notifications/notification.app';
+import {
+  INotificationApp,
+  INotificationFilterSegments,
+  INotificationFilterSpecificDevices,
+  INotificationFilterUsersBased,
+} from '../../dto/notifications';
+import { OneSignalError } from '../../errors';
 
 export abstract class NotificationByBaseBuilder<FilterNotification extends INotificationApp | INotificationFilterSegments | INotificationFilterUsersBased | INotificationFilterSpecificDevices> {
 
-  // tslint:disable-next-line:variable-name
   private readonly filterNotification: any;
 
   protected constructor(appId: string) {
@@ -16,17 +18,24 @@ export abstract class NotificationByBaseBuilder<FilterNotification extends INoti
   }
 
   public notification(): NotificationBuilder {
-    this.checkRequiredVariables();
+    this.checkRequiredVariablesInternal();
     return new NotificationBuilder(this.filterNotification);
   }
 
   public email(): EmailBuilder {
-    this.checkRequiredVariables();
+    this.checkRequiredVariablesInternal();
     return new EmailBuilder(this.filterNotification);
   }
 
   protected get filter(): FilterNotification {
     return this.filterNotification;
+  }
+
+  protected checkRequiredVariablesInternal() {
+    if (!this.filterNotification.app_id) {
+      throw new OneSignalError('app_id is required');
+    }
+    this.checkRequiredVariables();
   }
 
   protected abstract checkRequiredVariables();

@@ -1,5 +1,5 @@
 // https://documentation.onesignal.com/reference#section-grouping-collapsing
-export interface INotificationGrouping {
+export interface INotificationGroupingCollapsing {
   android_group?: string;
   android_group_message?: object;
   adm_group?: string;

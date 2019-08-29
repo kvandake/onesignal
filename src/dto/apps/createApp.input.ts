@@ -1,7 +1,7 @@
 import { ApnsEnv } from '../../enums';
 
 // https://documentation.onesignal.com/reference#section-result-format-create-an-app
-export interface IUpsertAppInput {
+export interface ICreateAppInput {
   name: string,
   apns_env?: ApnsEnv,
   apns_p12?: string,

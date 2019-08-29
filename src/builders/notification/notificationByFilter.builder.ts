@@ -1,5 +1,5 @@
 import { NotificationByBaseBuilder } from './notificationByBase.builder';
-import { INotificationFilterUsersBased } from '../../dto/notifications/notification.filter.usersBased';
+import { INotificationFilterUsersBased } from '../../dto/notifications';
 
 // https://documentation.onesignal.com/reference#section-send-to-users-based-on-filters
 export class NotificationByFilterBuilder extends NotificationByBaseBuilder<INotificationFilterUsersBased> {

@@ -18,11 +18,9 @@
   },
   "dependencies": {
     "axios": "^0.19.0",
-    "axios-mock-adapter": "^1.17.0",
-    "humps": "^2.0.1"
+    "axios-mock-adapter": "^1.17.0"
   },
   "devDependencies": {
-    "@types/humps": "^1.1.2",
     "@types/jest": "^24.0.18",
     "jest": "^24.9.0",
     "prettier": "^1.18.2",

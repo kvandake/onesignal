@@ -1,6 +1,6 @@
 import { NotificationByBaseBuilder } from './notificationByBase.builder';
 import { OneSignalError } from '../../errors';
-import { INotificationFilterSpecificDevices } from '../../dto/notifications/notification.filter.specificDevices';
+import { INotificationFilterSpecificDevices } from '../../dto/notifications';
 
 // https://documentation.onesignal.com/reference#section-send-to-specific-devices
 export class NotificationByDeviceBuilder extends NotificationByBaseBuilder<INotificationFilterSpecificDevices> {

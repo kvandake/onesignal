@@ -41,9 +41,20 @@ export class EmailBuilder {
     return this;
   }
 
+  //  Use a template you setup on our dashboard. You can override the template values by sending other parameters with the request.
+  //  The template_id is the UUID found in the URL when viewing a template on our dashboard.
+  //  Example: be4a8044-bbd6-11e4-a581-000c2940e62c
+  public setTemplateId(value: string): EmailBuilder {
+    this.notification.template_id = value;
+    return this;
+  }
+
   private checkRequiredVariables() {
-    if (!this.notification.email_subject || !this.notification.email_body) {
-      throw new OneSignalError('email_subject and email_body are required');
+    if (!this.notification.email_subject) {
+      throw new OneSignalError('email_subject is required');
+    }
+    if (!this.notification.email_body && !this.notification.template_id) {
+      throw new OneSignalError('email_body or template_id are required');
     }
   }
 }
