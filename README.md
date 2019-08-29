@@ -2,12 +2,12 @@
 
 Npm
 ```sh
-npm install @onesignal/client
+npm install onesignal-api-client-core
 ```
 
 Yarn
 ```sh
-yarn add @onesignal/client
+yarn add onesignal-api-client-core
 ```
 
 ## Features
@@ -27,7 +27,7 @@ The Create Notification method is used when you want your server to programmatic
 [API Reference](https://documentation.onesignal.com/reference#section-send-to-segments)
 Segments are the most common way developers send notifications via OneSignal. Sending to segments is easy: you simply specify which segments you want to send to, and, optionally, which ones you don't.
 ```typescript
-import { OneSignalAppClient, NotificationBySegmentBuilder } from '@onesignal/client';
+import { OneSignalAppClient, NotificationBySegmentBuilder } from 'onesignal-api-client-core';
 
 const client = new OneSignalAppClient('appId', 'restApiKey');
 
@@ -44,7 +44,7 @@ const result = await client.createNotification(input);
 [API Reference](https://documentation.onesignal.com/reference#section-send-to-users-based-on-filters)
 Filters are a powerful way to target users, allowing you to use both data that OneSignal has about a user and any Tags your app may send OneSignal. Filters can be combined together to form advanced, highly precise user targeting. OneSignal customers use all sorts of filters to send notifications, including language, location, user activity, and more.
 ```typescript
-import { OneSignalAppClient, NotificationByFilterBuilder } from '@onesignal/client';
+import { OneSignalAppClient, NotificationByFilterBuilder } from 'onesignal-api-client-core';
 
 const client = new OneSignalAppClient('appId', 'restApiKey');
 
@@ -67,7 +67,7 @@ You may also target specific devices with the create notification method. Target
 -  For notifications that target individual users, such as if they've received a message from someone.
 - For apps that wish to manage their own segments, such as tracking a user's followers and sending notifications to them when that user posts.
 ```typescript
-import { OneSignalAppClient, NotificationByDeviceBuilder } from '@onesignal/client';
+import { OneSignalAppClient, NotificationByDeviceBuilder } from 'onesignal-api-client-core';
 
 const client = new OneSignalAppClient('appId', 'restApiKey');
 
@@ -84,7 +84,7 @@ const result = await client.createNotification(input);
 [API Reference](https://documentation.onesignal.com/reference#cancel-notification)
 Stop a scheduled or currently outgoing notification.
 ```typescript
-import { OneSignalAppClient, ICancelNotificationInput } from '@onesignal/client';
+import { OneSignalAppClient, ICancelNotificationInput } from 'onesignal-api-client-core';
 
 const client = new OneSignalAppClient('appId', 'restApiKey');
 
@@ -95,7 +95,7 @@ const result = await client.cancelNotification(input);
 ### Create, View or Update a Device
 [API Reference](https://documentation.onesignal.com/reference#view-devices)
 ```typescript
-import { OneSignalAppClient, ICreateDeviceInput, IViewDeviceInput, IUpdateDeviceInput, DeviceType } from '@onesignal/client';
+import { OneSignalAppClient, ICreateDeviceInput, IViewDeviceInput, IUpdateDeviceInput, DeviceType } from 'onesignal-api-client-core';
 
 const client = new OneSignalAppClient('appId', 'restApiKey');
 
@@ -113,7 +113,7 @@ const updateResult = await client.updateDevice(input);
 ### Create, View or Update an OneSignal App
 [API Reference](https://documentation.onesignal.com/reference#view-apps-apps)
 ```typescript
-import { OneSignalUserClient, ICreateAppInput, IViewAppInput, IUpdateAppInput } from '@onesignal/client';
+import { OneSignalUserClient, ICreateAppInput, IViewAppInput, IUpdateAppInput } from 'onesignal-api-client-core';
 
 const client = new OneSignalUserClient('userAuthKey');
 
@@ -131,7 +131,7 @@ const updateResult = await client.updateApp(input);
 ### Track open
 [API Reference](https://documentation.onesignal.com/reference#track-open)
 ```typescript
-import { OneSignalAppClient, ITrackOpenInput } from '@onesignal/client';
+import { OneSignalAppClient, ITrackOpenInput } from 'onesignal-api-client-core';
 
 const client = new OneSignalAppClient('appId', 'restApiKey');
 
@@ -142,7 +142,7 @@ const trackOpenResult = await client.trackOpen(input);
 ### New Session
 [API Reference](https://documentation.onesignal.com/reference#new-session)
 ```typescript
-import { OneSignalAppClient, INewSessionInput } from '@onesignal/client';
+import { OneSignalAppClient, INewSessionInput } from 'onesignal-api-client-core';
 
 const client = new OneSignalAppClient('appId', 'restApiKey');
 
