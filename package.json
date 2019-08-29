@@ -1,8 +1,22 @@
 {
-  "name": "onesignal",
+  "name": "@onesignal/api",
   "version": "1.0.0",
+  "description": "A Typescript Library for OneSignal push notification service",
   "author": "kvandake",
   "license": "MIT",
+  "keywords": [
+    "OneSignal",
+    "Typescript",
+    "Axios",
+    "NodeJS"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kvandake/onesignal"
+  },
+  "bugs": {
+    "url": "https://github.com/kvandake/onesignal/issues"
+  },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -31,24 +45,5 @@
   },
   "files": [
     "lib/**/*"
-  ],
-  "jest": {
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "ts"
-    ],
-    "rootDir": "src",
-    "testRegex": ".spec.ts$",
-    "transform": {
-      "^.+\\.(t|j)s$": "ts-jest"
-    },
-    "globals": {
-      "ts-jest": {
-        "tsConfig": "tsconfig.test.json"
-      }
-    },
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
-  }
+  ]
 }
