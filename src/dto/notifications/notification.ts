@@ -2,8 +2,8 @@ import { INotificationContent } from './notification.content';
 import { IEmailContent } from './notification.email.content';
 import { INotificationIdempotency } from './notification.idempotency';
 import { INotificationFilterSegments } from './notification.filter.segments';
-import { INotificationFilterSpecificDevices } from './notification.filter.specificDevices';
-import { INotificationFilterUsersBased } from './notification.filter.usersBased';
+import { INotificationFilterDevices } from './notification.filter.devices';
+import { INotificationFilterUsers } from './notification.filter.users';
 import { INotificationAttachments } from './notification.attachments';
 import { INotificationAppearance } from './notification.appearance';
 import { INotificationActionButtons } from './notification.actionButtons';
@@ -19,8 +19,8 @@ export interface INotification
     INotificationAppearance,
     INotificationActionButtons,
     INotificationFilterSegments,
-    INotificationFilterSpecificDevices,
-    INotificationFilterUsersBased,
+    INotificationFilterDevices,
+    INotificationFilterUsers,
     INotificationGroupingCollapsing,
     INotificationPlatform,
     INotificationDelivery {}

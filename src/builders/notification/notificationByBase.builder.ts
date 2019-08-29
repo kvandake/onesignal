@@ -2,15 +2,15 @@ import { NotificationBuilder } from './notification.builder';
 import { EmailBuilder } from './email.builder';
 import {
   INotificationFilterSegments,
-  INotificationFilterSpecificDevices,
-  INotificationFilterUsersBased,
+  INotificationFilterDevices,
+  INotificationFilterUsers,
 } from '../../dto/notifications';
 
 export abstract class NotificationByBaseBuilder<
   FilterNotification extends
     | INotificationFilterSegments
-    | INotificationFilterUsersBased
-    | INotificationFilterSpecificDevices
+    | INotificationFilterUsers
+    | INotificationFilterDevices
 > {
   private readonly filterNotification: any = {} as FilterNotification;
 

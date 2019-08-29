@@ -1,9 +1,9 @@
 import { NotificationByBaseBuilder } from './notificationByBase.builder';
 import { OneSignalError } from '../../errors';
-import { INotificationFilterSpecificDevices } from '../../dto/notifications';
+import { INotificationFilterDevices } from '../../dto/notifications';
 
 // https://documentation.onesignal.com/reference#section-send-to-specific-devices
-export class NotificationByDeviceBuilder extends NotificationByBaseBuilder<INotificationFilterSpecificDevices> {
+export class NotificationByDeviceBuilder extends NotificationByBaseBuilder<INotificationFilterDevices> {
   //  Specific players to send your notification to. Does not require API Auth Key.
   //  Do not combine with other targeting parameters. Not compatible with any other targeting parameters.
   //  Example: ["1dd608f2-c6a1-11e3-851d-000c2940e62c"]
