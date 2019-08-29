@@ -12,7 +12,7 @@ export abstract class OneSignalBaseClient {
 
   protected abstract createHttpClient();
 
-  protected configureHttpClient(client: AxiosInstance) {
+  private configureHttpClient(client: AxiosInstance) {
     client.interceptors.response.use(
       response => {
         return response;
@@ -22,7 +22,7 @@ export abstract class OneSignalBaseClient {
           config,
           response: { status },
         } = error;
-        // To many requests
+        // Too many requests
         if (status === 429) {
           return new Promise((resolve, reject) => {
             setTimeout(() => resolve(client.request(config)), 1000);

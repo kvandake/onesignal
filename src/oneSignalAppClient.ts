@@ -126,7 +126,6 @@ export class OneSignalAppClient extends OneSignalBaseClient {
 
   protected createHttpClient() {
     const httpClient = axios.create({ baseURL: this.BaseUrl });
-    this.configureHttpClient(httpClient);
     httpClient.interceptors.request.use(
       config => {
         config.headers.Authorization = `Basic ${this.restApiKey}`;
