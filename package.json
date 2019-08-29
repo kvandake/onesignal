@@ -1,14 +1,14 @@
 {
   "name": "onesignal-api-client-core",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Typescript client for OneSignal Server Rest API",
   "author": "kvandake",
   "license": "MIT",
   "keywords": [
-    "OneSignal",
-    "Typescript",
-    "Axios",
-    "NodeJS"
+    "onesignal",
+    "typescript",
+    "axios",
+    "nodejs"
   ],
   "repository": {
     "type": "git",
