@@ -4,7 +4,7 @@ describe('NotificationByFilterBuilder', () => {
   let builder: NotificationByFilterBuilder;
 
   beforeEach(() => {
-    builder = new NotificationByFilterBuilder('test');
+    builder = new NotificationByFilterBuilder();
   });
 
   it('should valid variables', () => {

@@ -1,3 +1,3 @@
 export interface IViewAppInput {
-  appId: string;
+  id: string;
 }

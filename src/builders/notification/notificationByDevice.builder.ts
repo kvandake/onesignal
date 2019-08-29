@@ -5,11 +5,7 @@ import { INotificationFilterSpecificDevices } from '../../dto/notifications';
 // https://documentation.onesignal.com/reference#section-send-to-specific-devices
 export class NotificationByDeviceBuilder extends NotificationByBaseBuilder<INotificationFilterSpecificDevices> {
 
-  constructor(appId: string) {
-    super(appId);
-  }
-
-//  Specific players to send your notification to. Does not require API Auth Key.
+  //  Specific players to send your notification to. Does not require API Auth Key.
   //  Do not combine with other targeting parameters. Not compatible with any other targeting parameters.
   //  Example: ["1dd608f2-c6a1-11e3-851d-000c2940e62c"]
   //  Limit of 2,000 entries per REST API call

@@ -1,8 +1,6 @@
 import { IViewNotificationResult } from './viewNotification.result';
+import { IListResult } from '../common';
 
-export interface IViewNotificationsResult {
-  total_count: number,
-  offset: number,
-  limit: number,
+export interface IViewNotificationsResult extends IListResult {
   notifications: IViewNotificationResult[];
 }

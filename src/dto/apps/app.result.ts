@@ -1,7 +1,7 @@
 import { ApnsEnv } from '../../enums';
 
 // https://documentation.onesignal.com/reference#section-result-format-create-an-app
-export interface IApp {
+export interface IAppResult {
   id: string;
   name: string;
   players: number;

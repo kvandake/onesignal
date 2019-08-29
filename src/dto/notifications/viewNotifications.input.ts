@@ -1,5 +1,4 @@
 export interface IViewNotificationsInput {
-  app_id: string;
   limit: number;
   offset: number;
   //  Kind of notifications returned. Default (not set) is all notification types.

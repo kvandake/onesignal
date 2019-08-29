@@ -5,7 +5,7 @@ describe('NotificationByDeviceBuilder', () => {
   let builder: NotificationByDeviceBuilder;
 
   beforeEach(() => {
-    builder = new NotificationByDeviceBuilder('test');
+    builder = new NotificationByDeviceBuilder();
   });
 
   it('should valid variables', () => {

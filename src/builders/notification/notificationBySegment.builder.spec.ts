@@ -5,7 +5,7 @@ describe('NotificationBySegmentBuilder', () => {
   let builder: NotificationBySegmentBuilder;
 
   beforeEach(() => {
-    builder = new NotificationBySegmentBuilder('test');
+    builder = new NotificationBySegmentBuilder();
   });
 
   it('should valid variables', () => {

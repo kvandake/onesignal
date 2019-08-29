@@ -1,4 +1,4 @@
-export const appFaker = {
+export const appResultFaker = {
   create,
 };
 

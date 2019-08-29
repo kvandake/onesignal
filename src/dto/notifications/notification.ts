@@ -10,9 +10,8 @@ import { INotificationActionButtons } from './notification.actionButtons';
 import { INotificationGroupingCollapsing } from './notification.grouping.collapsing';
 import { INotificationPlatform } from './notification.platform';
 import { INotificationDelivery } from './notification.delivery';
-import { INotificationApp } from './notification.app';
 
-export interface INotification extends INotificationApp, INotificationContent, IEmailContent,
+export interface INotification extends INotificationContent, IEmailContent,
   INotificationIdempotency, INotificationAttachments, INotificationAppearance, INotificationActionButtons,
   INotificationFilterSegments, INotificationFilterSpecificDevices, INotificationFilterUsersBased,
   INotificationGroupingCollapsing, INotificationPlatform, INotificationDelivery {

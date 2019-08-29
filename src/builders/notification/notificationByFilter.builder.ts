@@ -4,11 +4,7 @@ import { INotificationFilterUsersBased } from '../../dto/notifications';
 // https://documentation.onesignal.com/reference#section-send-to-users-based-on-filters
 export class NotificationByFilterBuilder extends NotificationByBaseBuilder<INotificationFilterUsersBased> {
 
-  constructor(appId: string) {
-    super(appId);
-  }
-
-//  relation = ">" or "<"
+  //  relation = ">" or "<"
   //  hours_ago = number of hours before or after the users last session.
   //  Example: "1.1"
   public setLastSession(value: string): NotificationByFilterBuilder {
