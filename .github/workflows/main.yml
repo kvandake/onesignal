@@ -1,8 +1,9 @@
 name: Node.js Package
 
 on:
-  tags:
-    - v*
+  push:
+    tags:
+      - v*
 
 jobs:
   publish-npm:
