@@ -1,5 +1,5 @@
 {
-  "name": "@onesignal/api",
+  "name": "@onesignal/client",
   "version": "1.0.0",
   "description": "A Typescript Library for OneSignal push notification service",
   "author": "kvandake",
