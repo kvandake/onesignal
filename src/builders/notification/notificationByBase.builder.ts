@@ -13,12 +13,12 @@ export abstract class NotificationByBaseBuilder<
 
   public notification(): NotificationBuilder {
     this.checkRequiredVariables();
-    return new NotificationBuilder(this.filterNotification);
+    return new NotificationBuilder({ ...this.filterNotification });
   }
 
   public email(): EmailBuilder {
     this.checkRequiredVariables();
-    return new EmailBuilder(this.filterNotification);
+    return new EmailBuilder({ ...this.filterNotification });
   }
 
   protected get filter(): FilterNotification {
