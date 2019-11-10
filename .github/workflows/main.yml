@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: Borales/actions-yarn@master
+      - uses: borales/actions-yarn@v2.0.0
       - run: yarn install
       - run: yarn publish --access public
         env:
