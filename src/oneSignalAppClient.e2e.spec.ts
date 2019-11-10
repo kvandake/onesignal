@@ -6,6 +6,7 @@ import {
   IViewNotificationsInput,
 } from './dto/notifications';
 import { NotificationByDeviceBuilder } from './builders/notification';
+// @ts-ignore
 import { testConstants } from '../__tests__/testConstants';
 import { ICreateDeviceInput, IUpdateDeviceInput, IViewDeviceInput } from './dto/devices';
 import { DeviceType } from './enums';
@@ -25,99 +26,119 @@ describe('OneSignalAppClient', () => {
 
   beforeEach(() => {
     client = new OneSignalAppClient(testConstants.defaultApp.id, testConstants.defaultApp.restApiKey);
-  });
+  }, testConstants.defaultTimeout);
 
-  it('should view Notifications"', async () => {
-    // arrange
-    const input = { limit: 10, offset: 10 } as IViewNotificationsInput;
+  it(
+    'should view Notifications"',
+    async () => {
+      // arrange
+      const input = { limit: 10, offset: 10 } as IViewNotificationsInput;
 
-    // act
-    const result = await client.viewNotifications(input);
+      // act
+      const result = await client.viewNotifications(input);
 
-    // assert
-    expect(result).toBeDefined();
-  });
+      // assert
+      expect(result).toBeDefined();
+    },
+    testConstants.defaultTimeout,
+  );
 
-  it('should create Notification"', async () => {
-    // arrange
-    const content = { en: 'English Message', es: 'Spanish Message' };
-    const input = new NotificationByDeviceBuilder()
-      .setIncludePlayerIds(new Array(DEFAULT_DEVICE))
-      .notification()
-      .setContents(content)
-      .setDelivery({
-        send_after: tomorrow().toUTCString(),
-      })
-      .build();
+  it(
+    'should create Notification"',
+    async () => {
+      // arrange
+      const content = { en: 'English Message', es: 'Spanish Message' };
+      const input = new NotificationByDeviceBuilder()
+        .setIncludePlayerIds(new Array(DEFAULT_DEVICE))
+        .notification()
+        .setContents(content)
+        .setDelivery({
+          send_after: tomorrow().toUTCString(),
+        })
+        .build();
 
-    // act
-    const result = await client.createNotification(input);
-    const cancelInput = { id: result.id } as ICancelNotificationInput;
-    const cancelResult = await client.cancelNotification(cancelInput);
+      // act
+      const result = await client.createNotification(input);
+      const cancelInput = { id: result.id } as ICancelNotificationInput;
+      const cancelResult = await client.cancelNotification(cancelInput);
 
-    // assert
-    expect(result).toBeDefined();
-    expect(cancelResult.success).toBeTruthy();
-  });
+      // assert
+      expect(result).toBeDefined();
+      expect(cancelResult.success).toBeTruthy();
+    },
+    testConstants.defaultTimeout,
+  );
 
-  it('should view Notification"', async () => {
-    // arrange
-    const content = { en: 'English Message', es: 'Spanish Message' };
-    const createInput = new NotificationByDeviceBuilder()
-      .setIncludePlayerIds(new Array(DEFAULT_DEVICE))
-      .notification()
-      .setContents(content)
-      .setDelivery({
-        send_after: tomorrow().toUTCString(),
-      })
-      .build();
-    const createResult = await client.createNotification(createInput);
-    const input = { id: createResult.id } as IViewNotificationInput;
+  it(
+    'should view Notification"',
+    async () => {
+      // arrange
+      const content = { en: 'English Message', es: 'Spanish Message' };
+      const createInput = new NotificationByDeviceBuilder()
+        .setIncludePlayerIds(new Array(DEFAULT_DEVICE))
+        .notification()
+        .setContents(content)
+        .setDelivery({
+          send_after: tomorrow().toUTCString(),
+        })
+        .build();
+      const createResult = await client.createNotification(createInput);
+      const input = { id: createResult.id } as IViewNotificationInput;
 
-    // act
-    const result = await client.viewNotification(input);
-    const cancelInput = { id: result.id } as ICancelNotificationInput;
-    const cancelResult = await client.cancelNotification(cancelInput);
+      // act
+      const result = await client.viewNotification(input);
+      const cancelInput = { id: result.id } as ICancelNotificationInput;
+      const cancelResult = await client.cancelNotification(cancelInput);
 
-    // assert
-    expect(result.id).toBeDefined();
-    expect(cancelResult.success).toBeTruthy();
-  });
+      // assert
+      expect(result.id).toBeDefined();
+      expect(cancelResult.success).toBeTruthy();
+    },
+    testConstants.defaultTimeout,
+  );
 
-  it('should cancel Notification"', async () => {
-    // arrange
-    const content = { en: 'English Message', es: 'Spanish Message' };
-    const createInput = new NotificationByDeviceBuilder()
-      .setIncludePlayerIds(new Array(DEFAULT_DEVICE))
-      .notification()
-      .setContents(content)
-      .setDelivery({
-        send_after: tomorrow().toUTCString(),
-      })
-      .build();
-    const createResult = await client.createNotification(createInput);
-    const input = { id: createResult.id } as ICancelNotificationInput;
+  it(
+    'should cancel Notification"',
+    async () => {
+      // arrange
+      const content = { en: 'English Message', es: 'Spanish Message' };
+      const createInput = new NotificationByDeviceBuilder()
+        .setIncludePlayerIds(new Array(DEFAULT_DEVICE))
+        .notification()
+        .setContents(content)
+        .setDelivery({
+          send_after: tomorrow().toUTCString(),
+        })
+        .build();
+      const createResult = await client.createNotification(createInput);
+      const input = { id: createResult.id } as ICancelNotificationInput;
 
-    // act
-    const result = await client.cancelNotification(input);
+      // act
+      const result = await client.cancelNotification(input);
 
-    // assert
-    expect(result.success).toBeTruthy();
-  });
+      // assert
+      expect(result.success).toBeTruthy();
+    },
+    testConstants.defaultTimeout,
+  );
 
-  it('should create Device"', async () => {
-    // arrange
-    const input = {
-      device_type: DeviceType.ChromeWebPush,
-      identifier: 'test',
-    } as ICreateDeviceInput;
+  it(
+    'should create Device"',
+    async () => {
+      // arrange
+      const input = {
+        device_type: DeviceType.ChromeWebPush,
+        identifier: 'test',
+      } as ICreateDeviceInput;
 
-    // act
-    const result = await client.createDevice(input);
+      // act
+      const result = await client.createDevice(input);
 
-    // assert
-    expect(result).toBeDefined();
-  });
+      // assert
+      expect(result).toBeDefined();
+    },
+    testConstants.defaultTimeout,
+  );
 
   it('should update Device"', async () => {
     // arrange
@@ -134,57 +155,73 @@ describe('OneSignalAppClient', () => {
     expect(result).toBeDefined();
   });
 
-  it('should view Device"', async () => {
-    // arrange
-    const input = { id: DEFAULT_DEVICE } as IViewDeviceInput;
+  it(
+    'should view Device"',
+    async () => {
+      // arrange
+      const input = { id: DEFAULT_DEVICE } as IViewDeviceInput;
 
-    // act
-    const result = await client.viewDevice(input);
+      // act
+      const result = await client.viewDevice(input);
 
-    // assert
-    expect(result).toBeDefined();
-  });
+      // assert
+      expect(result).toBeDefined();
+    },
+    testConstants.defaultTimeout,
+  );
 
-  it('should view Devices"', async () => {
-    // act
-    const result = await client.viewDevices();
+  it(
+    'should view Devices"',
+    async () => {
+      // act
+      const result = await client.viewDevices();
 
-    // assert
-    expect(result.total_count).toBeGreaterThan(0);
-  });
+      // assert
+      expect(result.total_count).toBeGreaterThan(0);
+    },
+    testConstants.defaultTimeout,
+  );
 
-  it('should new Session"', async () => {
-    // arrange
-    const input = { deviceId: DEFAULT_DEVICE } as INewSessionInput;
+  it(
+    'should new Session"',
+    async () => {
+      // arrange
+      const input = { deviceId: DEFAULT_DEVICE } as INewSessionInput;
 
-    // act
-    const result = await client.newSession(input);
+      // act
+      const result = await client.newSession(input);
 
-    // assert
-    expect(result.success).toBeTruthy();
-  });
+      // assert
+      expect(result.success).toBeTruthy();
+    },
+    testConstants.defaultTimeout,
+  );
 
-  it('should track open"', async () => {
-    // arrange
-    const content = { en: 'English Message', es: 'Spanish Message' };
-    const createInput = new NotificationByDeviceBuilder()
-      .setIncludePlayerIds(new Array(DEFAULT_DEVICE))
-      .notification()
-      .setContents(content)
-      .setDelivery({
-        send_after: tomorrow().toUTCString(),
-      })
-      .build();
-    const createResult = await client.createNotification(createInput);
-    const cancelInput = { id: createResult.id } as ICancelNotificationInput;
-    const input = { notificationId: createResult.id, opened: true } as ITrackOpenInput;
+  it(
+    'should track open"',
+    async () => {
+      // arrange
+      const content = { en: 'English Message', es: 'Spanish Message' };
+      const createInput = new NotificationByDeviceBuilder()
+        .setIncludePlayerIds(new Array(DEFAULT_DEVICE))
+        .notification()
+        .setContents(content)
+        .setDelivery({
+          send_after: tomorrow().toUTCString(),
+        })
+        .build();
+      const createResult = await client.createNotification(createInput);
+      const cancelInput = { id: createResult.id } as ICancelNotificationInput;
+      const input = { notificationId: createResult.id, opened: true } as ITrackOpenInput;
 
-    // act
-    const result = await client.trackOpen(input);
-    const cancelResult = await client.cancelNotification(cancelInput);
+      // act
+      const result = await client.trackOpen(input);
+      const cancelResult = await client.cancelNotification(cancelInput);
 
-    // assert
-    expect(result.success).toBeTruthy();
-    expect(cancelResult.success).toBeTruthy();
-  });
+      // assert
+      expect(result.success).toBeTruthy();
+      expect(cancelResult.success).toBeTruthy();
+    },
+    testConstants.defaultTimeout,
+  );
 });
