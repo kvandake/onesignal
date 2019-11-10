@@ -18,12 +18,9 @@ export abstract class OneSignalBaseClient {
         return response;
       },
       error => {
-        const {
-          config,
-          response: { status },
-        } = error;
+        const { config, response } = error;
         // Too many requests
-        if (status === 429) {
+        if (!!response && response.status === 429) {
           return new Promise((resolve, reject) => {
             setTimeout(() => resolve(client.request(config)), 1000);
           });
