@@ -1,6 +1,6 @@
 {
   "name": "onesignal-api-client-core",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Typescript client for OneSignal Server Rest API",
   "author": "kvandake",
   "license": "MIT",
