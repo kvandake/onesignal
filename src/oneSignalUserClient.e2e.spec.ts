@@ -17,7 +17,7 @@ describe('OneSignalUserClient', () => {
       const result = await client.viewApps();
 
       // assert
-      expect(result.some(x => x.name === testConstants.defaultApp.name)).toBeTruthy();
+      expect(result.some((x) => x.name === testConstants.defaultApp.name)).toBeTruthy();
     },
     testConstants.defaultTimeout,
   );
@@ -43,7 +43,7 @@ describe('OneSignalUserClient', () => {
       // arrange
       const name = 'Test2';
       const existsApps = await client.viewApps();
-      if (existsApps.some(x => x.name === name)) {
+      if (existsApps.some((x) => x.name === name)) {
         return;
       }
       const input = { name } as ICreateAppInput;

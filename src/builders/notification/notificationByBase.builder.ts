@@ -7,7 +7,7 @@ import {
 } from '../../dto/notifications';
 
 export abstract class NotificationByBaseBuilder<
-  FilterNotification extends INotificationFilterSegments | INotificationFilterUsers | INotificationFilterDevices
+  FilterNotification extends INotificationFilterSegments | INotificationFilterUsers | INotificationFilterDevices,
 > {
   private readonly filterNotification: any = {} as FilterNotification;
 

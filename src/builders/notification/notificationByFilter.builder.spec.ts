@@ -16,10 +16,7 @@ describe('NotificationByFilterBuilder', () => {
 
     // act
     builder.setFilters(filters);
-    const result = builder
-      .notification()
-      .setContents({ test: 1 })
-      .build();
+    const result = builder.notification().setContents({ test: 1 }).build();
 
     // assert
     expect(result.filters).toEqual(filters);
@@ -28,9 +25,6 @@ describe('NotificationByFilterBuilder', () => {
   it('should check required variables', () => {
     // act & assert
     // without required variables
-    builder
-      .notification()
-      .setContents({ test: 1 })
-      .build();
+    builder.notification().setContents({ test: 1 }).build();
   });
 });

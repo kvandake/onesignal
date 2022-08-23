@@ -36,7 +36,7 @@ export class OneSignalAppClient extends OneSignalBaseClient {
   public async createNotification(input: INotification): Promise<ICreateNotificationResult> {
     this.checkRestApiKey();
     const body = { ...input, app_id: this.appId };
-    return await this.httpClient.post<ICreateNotificationResult>('/notifications', body).then(result => result.data);
+    return await this.httpClient.post<ICreateNotificationResult>('/notifications', body).then((result) => result.data);
   }
 
   //  View the details of a single notification
@@ -46,7 +46,7 @@ export class OneSignalAppClient extends OneSignalBaseClient {
     this.checkRestApiKey();
     return await this.httpClient
       .get<IViewNotificationResult>(`/notifications/${input.id}?app_id=${this.appId}`)
-      .then(result => result.data);
+      .then((result) => result.data);
   }
 
   //  View the details of multiple notifications
@@ -58,7 +58,7 @@ export class OneSignalAppClient extends OneSignalBaseClient {
       .get<IViewNotificationsResult>(
         `/notifications?app_id=${this.appId}&limit=${input.limit}&offset=${input.offset}&kind=${input.kind}`,
       )
-      .then(result => result.data);
+      .then((result) => result.data);
   }
 
   //  Used to stop a scheduled or currently outgoing notification.
@@ -67,7 +67,7 @@ export class OneSignalAppClient extends OneSignalBaseClient {
     this.checkRestApiKey();
     return await this.httpClient
       .delete<ICancelNotificationResult>(`/notifications/${input.id}?app_id=${this.appId}`)
-      .then(result => result.data);
+      .then((result) => result.data);
   }
 
   //  Register a new device to one of your OneSignal apps
@@ -75,7 +75,7 @@ export class OneSignalAppClient extends OneSignalBaseClient {
   public async createDevice(input: ICreateDeviceInput): Promise<ICreateDeviceResult> {
     this.checkRestApiKey();
     const body = { ...input, app_id: this.appId };
-    return await this.httpClient.post<ICreateDeviceResult>(`/players`, body).then(result => result.data);
+    return await this.httpClient.post<ICreateDeviceResult>(`/players`, body).then((result) => result.data);
   }
 
   //  Update an existing device in one of your OneSignal apps
@@ -83,7 +83,7 @@ export class OneSignalAppClient extends OneSignalBaseClient {
   public async updateDevice(input: IUpdateDeviceInput): Promise<IUpdateDeviceResult> {
     this.checkRestApiKey();
     const { id, ...body } = input;
-    return await this.httpClient.put<IUpdateDeviceResult>(`/players/${id}`, body).then(result => result.data);
+    return await this.httpClient.put<IUpdateDeviceResult>(`/players/${id}`, body).then((result) => result.data);
   }
 
   //  View the details of an existing device in one of your OneSignal apps
@@ -92,14 +92,14 @@ export class OneSignalAppClient extends OneSignalBaseClient {
     this.checkRestApiKey();
     return await this.httpClient
       .get<IViewDeviceResult>(`/players/${input.id}?app_id=${this.appId}`)
-      .then(result => result.data);
+      .then((result) => result.data);
   }
 
   //  View the details of multiple devices in one of your OneSignal apps
   //  https://documentation.onesignal.com/reference#view-devices
   public async viewDevices(): Promise<IViewDevicesResult> {
     this.checkRestApiKey();
-    return await this.httpClient.get<IViewDevicesResult>(`/players?app_id=${this.appId}`).then(result => result.data);
+    return await this.httpClient.get<IViewDevicesResult>(`/players?app_id=${this.appId}`).then((result) => result.data);
   }
 
   //  This method should be called when a device opens your app after they are already registered.
@@ -110,7 +110,7 @@ export class OneSignalAppClient extends OneSignalBaseClient {
     this.checkRestApiKey();
     return await this.httpClient
       .post<INewSessionResult>(`/players/${input.deviceId}/on_session`)
-      .then(result => result.data);
+      .then((result) => result.data);
   }
 
   //  Track when users open a notification
@@ -121,19 +121,18 @@ export class OneSignalAppClient extends OneSignalBaseClient {
     const body = { ...rest, app_id: this.appId };
     return await this.httpClient
       .put<ITrackOpenResult>(`/notifications/${notificationId}`, body)
-      .then(result => result.data);
+      .then((result) => result.data);
   }
 
   protected createHttpClient() {
     const httpClient = axios.create({ baseURL: this.BaseUrl });
     httpClient.interceptors.request.use(
-      config => {
-        if (config.headers)
-          config.headers.Authorization = `Basic ${this.restApiKey}`;
+      (config) => {
+        if (config.headers) config.headers.Authorization = `Basic ${this.restApiKey}`;
 
         return config;
       },
-      err => Promise.reject(err),
+      (err) => Promise.reject(err),
     );
 
     return httpClient;

@@ -14,10 +14,10 @@ export abstract class OneSignalBaseClient {
 
   private configureHttpClient(client: AxiosInstance) {
     client.interceptors.response.use(
-      response => {
+      (response) => {
         return response;
       },
-      error => {
+      (error) => {
         const { config, response } = error;
         // Too many requests
         if (!!response && response.status === 429) {
