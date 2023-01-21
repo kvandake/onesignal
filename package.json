@@ -1,6 +1,6 @@
 {
   "name": "onesignal-api-client-core",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Typescript client for OneSignal Server Rest API",
   "author": "kvandake",
   "license": "MIT",
@@ -24,7 +24,7 @@
     "build": "yarn run clean && tsc",
     "test": "jest",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
-    "lint": "tslint -p tsconfig.json",
+    "lint": "eslint src",
     "prepare": "yarn run build",
     "prepublishOnly": "yarn test && yarn run lint",
     "preversion": "yarn run lint",
