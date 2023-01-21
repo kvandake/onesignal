@@ -6,7 +6,6 @@ import {
   IViewNotificationsInput,
 } from './dto/notifications';
 import { NotificationByDeviceBuilder } from './builders/notification';
-// @ts-ignore
 import { testConstants } from '../__tests__/testConstants';
 import { ICreateDeviceInput, IUpdateDeviceInput, IViewDeviceInput } from './dto/devices';
 import { DeviceType } from './enums';

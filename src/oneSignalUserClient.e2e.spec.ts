@@ -1,6 +1,5 @@
 import { ICreateAppInput, IUpdateAppInput, IViewAppInput } from './dto/apps';
 import { OneSignalUserClient } from './oneSignalUserClient';
-// @ts-ignore
 import { testConstants } from '../__tests__/testConstants';
 
 describe('OneSignalUserClient', () => {
